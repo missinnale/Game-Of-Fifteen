@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/missinnale/Game-Of-Fifteen/issues"
   },
-  "homepage": "https://github.com/missinnale/Game-Of-Fifteen#readme"
+  "homepage": "https://github.com/missinnale/Game-Of-Fifteen#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
 }
