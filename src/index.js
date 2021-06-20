@@ -134,7 +134,7 @@ function updateBoard() {
         html += "<div class='row'>"
         for (var j = 0; j < puzzle.board[i].length; j++) {
             if (puzzle.board[i][j] == 0) {
-                html += "<div id='emptySpace'>  </div>";
+                html += "<div class='space' id='emptySpace'>  </div>";
             }
             else {
                 html += "<div class='space'>" + puzzle.board[i][j] + "</div>"

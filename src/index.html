@@ -3,13 +3,27 @@
 
 <head>
     <link rel="stylesheet" href="puzzle_page.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-    Hello
-    <div id="container">
-        <div id="board"></div>
+    <h1>Game of Fifteen</h1>
+    <div id="main_containter">
+        <div id='directions'>
+            <div>
+                <h3>Goal:</h3>
+                <p>Order all the numbers from 1 - 15 with the empty space in the bottom right corner.</p>
+                <p>To play use the arrow keys on your keyboard to shift the tiles in the direction you want.</p>
+                <br />
+                <p><b>Note: if you press the shift key you can move a whole row at once.</b></p>
+            </div>
+        </div>
+        <div id="container">
+            <div id="board"></div>
+        </div>
+    </div>
+    <div id="credit">Font credit goes to <a href="https://www.fontspace.com/honey-bear-font-f44847">thomasaradea</a>
     </div>
     <script src="./index.js"></script>
 </body>
