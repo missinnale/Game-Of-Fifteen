@@ -77,3 +77,18 @@ h1{
     font-family: HoneyBear;
     font-size: larger;
 }
+
+@media (max-width: 1284px) {
+    #main_containter {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #directions {
+        order: 2;
+    }
+
+    #container{
+        order: 1;
+    }
+  }
