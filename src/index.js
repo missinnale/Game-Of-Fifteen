@@ -39,83 +39,86 @@ class Puzzle {
         }
     }
 
-    upInput(shift) {
-        let self = this;
-        function moveUp() {
-            if (self.emptyPosition[0] == self.board.length - 1) return;
-            temp_space = self.board[self.emptyPosition[0] + 1][self.emptyPosition[1]];
-            self.board[self.emptyPosition[0] + 1][self.emptyPosition[1]] = 0;
-            self.board[self.emptyPosition[0]][self.emptyPosition[1]] = temp_space;
-            self.emptyPosition = [self.emptyPosition[0] + 1, self.emptyPosition[1]];
-        }
+    #moveUp() {
+        emptyPosition = this.emptyPosition;
+        board = this.board;
+        if (emptyPosition[0] == board.length - 1) return;
 
-        moveUp();
+        this.board[emptyPosition[0]][emptyPosition[1]] = board[emptyPosition[0] + 1][emptyPosition[1]];
+        this.board[emptyPosition[0] + 1][emptyPosition[1]] = 0;
+        this.emptyPosition = [emptyPosition[0] + 1, emptyPosition[1]];
+    }
+
+    upInput(shift) {
+        this.#moveUp();
 
         if (shift) {
-            while (self.board[self.board.length - 1][self.emptyPosition[1]] !== 0) {
-                moveUp();
+            while (this.board[this.board.length - 1][this.emptyPosition[1]] !== 0) {
+                this.#moveUp();
             }
-
         }
 
 
+    }
+
+    #moveDown() {
+        emptyPosition = this.emptyPosition;
+        board = this.board;
+        if (emptyPosition[0] == 0) return;
+
+        this.board[emptyPosition[0]][emptyPosition[1]] = board[emptyPosition[0] - 1][emptyPosition[1]];
+        this.board[emptyPosition[0] - 1][emptyPosition[1]] = 0;
+        this.emptyPosition = [emptyPosition[0] - 1, emptyPosition[1]];
     }
 
     downInput(shift) {
-        let self = this;
-        function moveDown() {
-            if (self.emptyPosition[0] == 0) return;
-            temp_space = self.board[self.emptyPosition[0] - 1][self.emptyPosition[1]];
-            self.board[self.emptyPosition[0] - 1][self.emptyPosition[1]] = 0;
-            self.board[self.emptyPosition[0]][self.emptyPosition[1]] = temp_space;
-            self.emptyPosition = [self.emptyPosition[0] - 1, self.emptyPosition[1]];
-        }
-
-        moveDown();
+        this.#moveDown();
 
         if (shift) {
-            while (self.board[0][self.emptyPosition[1]] !== 0) {
-                moveDown();
+            while (this.board[0][this.emptyPosition[1]] !== 0) {
+                this.#moveDown();
             }
 
         }
+    }
+
+    #moveLeft() {
+        emptyPosition = this.emptyPosition;
+        board = this.board;
+        if (emptyPosition[1] == board.length - 1) return;
+
+        this.board[emptyPosition[0]][emptyPosition[1]] = board[emptyPosition[0]][emptyPosition[1] + 1];
+        this.board[emptyPosition[0]][emptyPosition[1] + 1] = 0;
+        this.emptyPosition = [emptyPosition[0], emptyPosition[1] + 1];
     }
 
     leftInput(shift) {
-        let self = this;
-        function moveLeft() {
-            if (self.emptyPosition[1] == self.board.length - 1) return;
-            temp_space = self.board[self.emptyPosition[0]][self.emptyPosition[1] + 1];
-            self.board[self.emptyPosition[0]][self.emptyPosition[1] + 1] = 0;
-            self.board[self.emptyPosition[0]][self.emptyPosition[1]] = temp_space;
-            self.emptyPosition = [self.emptyPosition[0], self.emptyPosition[1] + 1];
-        }
-
-        moveLeft();
+        this.#moveLeft();
 
         if (shift) {
             while (self.board[self.emptyPosition[0]][self.board.length - 1] !== 0) {
-                moveLeft();
+                this.#moveLeft();
             }
 
         }
     }
 
-    rightInput(shift) {
-        let self = this;
-        function moveRight() {
-            if (self.emptyPosition[1] == 0) return;
-            temp_space = self.board[self.emptyPosition[0]][self.emptyPosition[1] - 1];
-            self.board[self.emptyPosition[0]][self.emptyPosition[1] - 1] = 0;
-            self.board[self.emptyPosition[0]][self.emptyPosition[1]] = temp_space;
-            self.emptyPosition = [self.emptyPosition[0], self.emptyPosition[1] - 1];
-        }
+    #moveRight() {
+        emptyPosition = this.emptyPosition;
+        board = this.board;
+        if (emptyPosition[1] == 0) return;
 
-        moveRight();
+        this.board[emptyPosition[0]][emptyPosition[1]] = board[emptyPosition[0]][emptyPosition[1] - 1];
+        this.board[emptyPosition[0]][emptyPosition[1] - 1] = 0;
+        this.emptyPosition = [emptyPosition[0], emptyPosition[1] - 1];
+    }
+
+    rightInput(shift) {
+        this.#moveRight();
 
         if (shift) {
             while (self.board[self.emptyPosition[0]][0] !== 0) {
-                moveRight();
+                this.#moveRight();
             }
 
         }
