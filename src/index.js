@@ -11,7 +11,7 @@ class Puzzle {
         for (let i = 0; i < width; i++) {
             board.push([])
             for (let j = 0; j < height; j++) {
-                random_index = Math.floor(Math.random() * nums.length)
+                let random_index = Math.floor(Math.random() * nums.length)
                 if (nums[random_index] == 0) {
                     this.emptyPosition = [i, j]
                 }
@@ -40,8 +40,8 @@ class Puzzle {
     }
 
     #moveUp() {
-        emptyPosition = this.emptyPosition;
-        board = this.board;
+        let emptyPosition = this.emptyPosition;
+        let board = this.board;
         if (emptyPosition[0] == board.length - 1) return;
 
         this.board[emptyPosition[0]][emptyPosition[1]] = board[emptyPosition[0] + 1][emptyPosition[1]];
@@ -62,8 +62,8 @@ class Puzzle {
     }
 
     #moveDown() {
-        emptyPosition = this.emptyPosition;
-        board = this.board;
+        let emptyPosition = this.emptyPosition;
+        let board = this.board;
         if (emptyPosition[0] == 0) return;
 
         this.board[emptyPosition[0]][emptyPosition[1]] = board[emptyPosition[0] - 1][emptyPosition[1]];
@@ -83,8 +83,8 @@ class Puzzle {
     }
 
     #moveLeft() {
-        emptyPosition = this.emptyPosition;
-        board = this.board;
+        let emptyPosition = this.emptyPosition;
+        let board = this.board;
         if (emptyPosition[1] == board.length - 1) return;
 
         this.board[emptyPosition[0]][emptyPosition[1]] = board[emptyPosition[0]][emptyPosition[1] + 1];
@@ -96,7 +96,7 @@ class Puzzle {
         this.#moveLeft();
 
         if (shift) {
-            while (self.board[self.emptyPosition[0]][self.board.length - 1] !== 0) {
+            while (this.board[this.emptyPosition[0]][this.board.length - 1] !== 0) {
                 this.#moveLeft();
             }
 
@@ -104,8 +104,8 @@ class Puzzle {
     }
 
     #moveRight() {
-        emptyPosition = this.emptyPosition;
-        board = this.board;
+        let emptyPosition = this.emptyPosition;
+        let board = this.board;
         if (emptyPosition[1] == 0) return;
 
         this.board[emptyPosition[0]][emptyPosition[1]] = board[emptyPosition[0]][emptyPosition[1] - 1];
@@ -117,7 +117,7 @@ class Puzzle {
         this.#moveRight();
 
         if (shift) {
-            while (self.board[self.emptyPosition[0]][0] !== 0) {
+            while (this.board[this.emptyPosition[0]][0] !== 0) {
                 this.#moveRight();
             }
 
